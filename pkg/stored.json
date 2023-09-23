@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Alek",
+    "safe": "$2a$12$HcEc0yW/xBThT4r/vLA3c.mXnhP/csOo88mp7/f6Th.HXdbniwQti",
+    "pin": "$2a$12$CGx5EKi.gc4UHCKbEhQh2ebiRHFADHkm94OgFA70I.FugKidrarky",
+    "vault": [
+      {
+        "title": "Valorant",
+        "email": "f2b1368e7bdc23ad9d803ebd973a71f2deeada26e1328de1bad4efa0b73abb3aeacebab791faf096a5e033834dbc55457fd9288d777fd94ba6c55dc9cbeadadcd2897c13eaca0283cc7951d3d3f79438f25c4c2e3fbc01b0e227b6de0a819228c97967df92282fb3f0a9aba31d1b04dfaf262f0db853",
+        "password": "07ede93f2664f2ffde7a94e371bcce256e927bc9cac007af7f9bbdefc73f6b6d09917ae2d1d5ed7f7e224b5f54ea17d53b5e6635f84b850b233c55bd3f6dbf98178513b4fcf2df5c32c2450404cbec2957f10afe621fc095a61e0f16ae791e48e4db439440",
+        "created": "2023-09-19T20:50:39.152Z"
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+#registration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#registration h1 {
+  font-size: 2rem;
+}
+#registration input {
+  width: 20rem;
+  height: 3rem;
+  box-sizing: border-box;
+  padding: 2px 5px;
+  border-radius: 21px;
+  text-align: center;
+}
+#inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+#inputs span {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+#inputs span:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#inputs span:nth-child(3) label,
+#inputs span:nth-child(3) select {
+  margin: 0 auto;
+}
+select {
+  width: 8rem;
+  text-align: center;
+  border-radius: 21px;
+}
+#login {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid black;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: max-content;
+  border-radius: 1.5rem;
+}

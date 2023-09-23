@@ -1,0 +1,8 @@
+#body {
+  width: 70%;
+  margin: 3% auto;
+  min-height: 40rem;
+  max-height: max-content;
+  padding: 1rem;
+  box-sizing: border-box;
+}
