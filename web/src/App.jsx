@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+
 import { Navigation } from "./components/Navigation/Navigation";
 import { Home } from "./components/Home/Home";
 import { Login } from "./components/Registration/Login";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/forgot" element={<ForgotPassword />} />
+          <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
       </div>
     </div>

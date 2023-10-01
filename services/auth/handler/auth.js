@@ -6,13 +6,13 @@ env.config({ path: `${__dirname}/../../../pkg/env/file.env` });
 
 exports.create = async (req, res) => {
   try {
-    const { name, password, strict, code } = req.body;
-    if (code % 1000 > 1000) {
+    const { username, password, confirmPassword, strict, pin } = req.body;
+    if (pin % 1000 > 1000 || password !== confirmPassword) {
       return res.status(400).send("Bad Request");
     }
     let data = await read();
     data = JSON.parse(data);
-    let existing = data.find((element) => element.name === name);
+    let existing = data.find((element) => element.username === username);
     if (existing) {
       return res.status(401).send("Unauthorized");
     }
@@ -32,11 +32,11 @@ exports.create = async (req, res) => {
         break;
     }
     const safe = await bcrypt.hash(password, 12);
-    const pin = await bcrypt.hash(`${code}`, 12);
-    const obj = { name, safe, pin, vault: [] };
+    const numb = await bcrypt.hash(`${pin}`, 12);
+    const obj = { username, safe, numb, vault: [] };
     data.push(obj);
     await write(JSON.stringify(data));
-    const cookie = jwt.sign({ name: name }, process.env.SECRET, {
+    const cookie = jwt.sign({ name: username }, process.env.SECRET, {
       expiresIn: duration,
     });
     res.cookie("jwt", cookie);
@@ -47,10 +47,10 @@ exports.create = async (req, res) => {
 };
 exports.login = async (req, res) => {
   try {
-    const { name, password, strict } = req.body;
+    const { username, password, strict } = req.body;
     let data = await read();
     data = JSON.parse(data);
-    let existing = data.find((element) => element.name === name);
+    let existing = data.find((element) => element.username === username);
     if (!existing.name) {
       return res.status(401).send("Unauthorized");
     }
@@ -73,7 +73,7 @@ exports.login = async (req, res) => {
         duration = Date.now() + 1000 * 60 * 60 * 24;
         break;
     }
-    const cookie = jwt.sign({ name: name }, process.env.SECRET, {
+    const cookie = jwt.sign({ name: username }, process.env.SECRET, {
       expiresIn: duration,
     });
     res.cookie("jwt", cookie, {

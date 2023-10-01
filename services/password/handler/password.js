@@ -12,7 +12,7 @@ exports.getAll = async (req, res) => {
     }
     let data = await read();
     data = JSON.parse(data);
-    let userInfo = data.find((element) => element.name === decoded.name);
+    let userInfo = data.find((element) => element.username === decoded.name);
     if (!userInfo) {
       return res.status(401).send("Unauthorized");
     }
@@ -21,7 +21,11 @@ exports.getAll = async (req, res) => {
       (element.email = cryptr.decrypt(element.email)),
         (element.password = cryptr.decrypt(element.password));
     });
-    res.status(200).json({ status: "ok", data: { vault } });
+    const userData = {
+      name: decoded.name,
+      vault: vault,
+    };
+    res.status(200).json({ status: "ok", data: { userData } });
   } catch (err) {
     console.log(err);
     return res.status(500).send("Internal server error");
